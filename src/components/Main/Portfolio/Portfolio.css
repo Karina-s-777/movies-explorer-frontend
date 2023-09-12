@@ -1,0 +1,114 @@
+.portfolio {
+    padding: 0 70px;
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio__title {
+    color: #8B8B8B;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 0;
+    max-width: 1140px;
+    padding: 0 0 50px 0;
+    width: 100%;
+}
+
+.portfolio__list {
+    display: flex;
+    flex-direction: column;
+    max-width: 1140px;
+    padding-bottom: 104px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.portfolio__list-element {
+    border-bottom: 1px solid #424242;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 20px 0;
+    padding-bottom: 9px;
+    width: 100%;
+}
+
+
+.portfolio__list-element_without-underscore {
+    border-bottom:none;
+    padding: 0 0 115px 0;
+    margin: 0;
+}
+
+.portfolio__link {
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 50px;
+    letter-spacing: -1.2px;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    width: 100%;
+    color: #FFF;
+}
+
+.portfolio__link:hover {
+    opacity: 0.7;
+ }
+
+ 
+.portfolio__icon {
+    font-size: 30px;
+    font-weight: 400;
+    margin: 0;
+    line-height: 60px;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1279px) {
+    .portfolio {
+        padding: 0 50px;
+    }
+
+    .portfolio__link {
+        font-size: 28px;
+    }
+
+    .portfolio__list-element_without-underscore {
+        padding-bottom: 80px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .portfolio {
+        padding: 0 14px 70px 14px;
+    }
+    
+    .portfolio__title {
+        font-size: 14px;
+        line-height: 20px;
+        padding-bottom: 40px;
+    }
+
+    .portfolio__list-element {
+        padding-bottom: 19px;
+    }
+
+    .portfolio__link {
+        font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.72px;
+    }
+
+    .portfolio__icon {
+        font-size: 18px;
+        line-height: 28px;
+        letter-spacing: -0.72px;
+    }
+
+    .portfolio__list-element_without-underscore {
+        padding-bottom: 0;
+    }
+}

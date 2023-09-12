@@ -1,0 +1,157 @@
+.about-project {
+    padding: 110px 70px;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-project__title {
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: -0.88px;
+    padding-bottom: 23px;
+    border-bottom: 1px solid rgba(218, 218, 218, 0.7);
+    margin: 0;
+}
+
+.about-project__description {
+    padding-top: 70px;
+    padding-left: 0;
+    max-width: 1140px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 0;
+}
+
+.about-project__card {
+    list-style: none;
+}
+
+.about-project__card-title {
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: -0.8px;
+    margin: 0 0 26px 0;
+}
+
+.about-project__card-text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 0;
+}
+
+.about-project__time {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    margin: 0;
+    max-width: 1140px;
+    padding: 110px 0 0 0;
+    width: 100%;
+}
+
+.about-project__time-card {
+    list-style: none;
+}
+
+.about-project__time-card-title {
+    align-items: center;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    height: 36px;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    background: #303030;
+}
+
+.about-project__time-card-title_exception {
+    background-color: #3DDC84;
+    color: #000;
+}
+
+.about-project__time-card-text {
+    align-items: center;
+    color: #8B8B8B;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+    margin: 14px 0 0 0;
+}
+
+
+@media screen and (min-width: 767px) and (max-width: 1279px) {
+    .about-project {
+        padding: 90px 50px;
+    }
+
+    .about-project__description {
+        gap: 33px;
+        max-width: 767px;
+    }
+
+    .about-project__card-title {
+        margin-bottom: 22px;
+    }
+
+    .about-project__card-text {
+        font-size: 12px;
+    }
+
+    .about-project__time {
+        max-width: 767px;
+        padding: 90px 0 0 0;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .about-project {
+        padding: 70px 18px;
+    }
+
+    .about-project__title {
+        font-size: 18px;
+        letter-spacing: -0.72px;
+        padding-bottom: 28px;
+        line-height: normal;
+    }
+
+    .about-project__description {
+        flex-direction: column;
+        padding-top: 60px;
+        gap: 56px;
+    }
+
+    .about-project__card-title {
+        font-size: 18px;
+        margin: 0 0 16px 0;
+        letter-spacing: -0.72px;
+        line-height: normal;
+    }
+
+    .about-project__card-text {
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .about-project__time {
+        font-size: 11px;
+        padding: 60px 0 0 0;
+        grid-template-columns: 100px auto;
+    }
+
+    .about-project__time-card-title {
+        font-size: 11px;
+        line-height: normal;
+    }
+
+    .about-project__time-card-text {
+        font-size: 11px;
+    line-height: normal;
+    margin-top: 10px;
+    }
+}
