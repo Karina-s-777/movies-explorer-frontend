@@ -7,6 +7,8 @@
     align-items: center;
     display: flex;
     margin-left: auto;
+    list-style: none;
+    padding: 0;
 }
 
 .navigation__container-authorization {
@@ -15,14 +17,16 @@
     margin-left: 44px;
 }
 
-.navigation__container_promo {
-    gap: 30px;
-}
-
-.navigation__container_movies {
+.navigation__grid {
     display: flex;
     gap: 16px;
     width: 231px;
+    list-style: none;
+    padding: 0;
+}
+
+.navigation__container_promo {
+    gap: 30px;
 }
 
 .navigation__butten {

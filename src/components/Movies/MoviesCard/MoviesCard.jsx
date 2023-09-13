@@ -4,6 +4,7 @@ import LikeButton from "../LikeButton/LikeButton";
 import DeleteButton from "../DeleteButton/DeleteButton";
 
 function MoviesCard({ name }) {
+
   return (
     <li className="movies-card">
       <div className="movies-card__info">

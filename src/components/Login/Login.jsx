@@ -11,7 +11,7 @@ function Login({ name }) {
         nameButton="Войти"
         // onSubmit={handleSubmit}
       >
-        <h3 className="auth__about-input">Email</h3>
+        <span className="auth__about-input">Email</span>
         <input
           type="email"
           id="email"
@@ -25,7 +25,7 @@ function Login({ name }) {
           // onChange={handleChange}
         />
         <span className="auth__input-error auth__input-error-noactive">Что-то пошло не так...</span>
-        <h3 className="auth__about-input">Пароль</h3>
+        <span className="auth__about-input">Пароль</span>
         <input
           type="password"
           id="password"

@@ -34,9 +34,13 @@
   }
 
   @media screen and (min-width: 767px) and (max-width: 1279px) {
-
     .not-found__title {
         padding-top: 408px;
+        
+    }
+
+    .not-found__button {
+      padding-bottom: 222px;
     }
   }
 
@@ -55,6 +59,7 @@
   
     .not-found__button {
       padding-top: 284px;
+      padding-bottom: 30px;
       font-size: 12px;
       line-height: 15px;
     }

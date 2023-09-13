@@ -26,11 +26,59 @@
     align-items: center;
 }
 
+.profile__button-retention {
+    border-radius: 3px;
+    background: #4285F4;
+    width: 396px;
+    height: 45px;
+    color: #FFF;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: normal;
+    /* margin-top: 69px; */
+    margin-bottom: 16px;
+    align-self: center;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.profile__button-retention:hover {
+    opacity: 0.8;
+}
+
+.profile__button-retention_disabled {
+    border-radius: 3px;
+    background: #F8F8F8;
+    width: 396px;
+    height: 45px;
+    color: #C2C2C2;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: normal;
+    /* margin-top: 159px; */
+    margin-bottom: 16px;
+    align-self: center;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.profile__button-retention_disabled:hover {
+    opacity: 0.8;
+}
+
 .profile__container-info:first-of-type {
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: rgb(170, 170, 170, 0.2) solid 1px;
+}
+
+.profile__container-info:first-of-type:hover {
+    border-bottom:  #3456F3 solid 1px;
 }
 
 .profile__info-text {
@@ -54,7 +102,7 @@
     margin: 17px 0 220px 0;
 }
 
-.profile__link-transition {
+.profile__button-transition {
     border: none;
     text-decoration: none;
     color: #FFF;
@@ -63,10 +111,11 @@
     font-weight: 400;
     line-height: normal;
     margin: 0 0 16px 0;
+    background-color: #202020;
 }
 
-.profile__link-transition:hover {
-    opacity: 0.2;
+.profile__button-transition:hover {
+    opacity: 0.8;
 }
 
 .profile__link-exit {
@@ -80,7 +129,7 @@
 }
 
 .profile__link-exit:hover {
-    opacity: 0.2;
+    opacity: 0.7;
 }
 
 @media screen and (min-width: 767px) and (max-width: 1279px) {
@@ -112,10 +161,24 @@
     }
 
     .profile__container-info:last-of-type {
-        margin-bottom: 210px;
+        margin-bottom: 379px;
     }
 
-    .profile__link-transition {
+    .profile__button-retention  {
+        max-width: 260px;
+        margin-top: 157px;
+        font-size: 12px;
+        font-weight: 500;
+        }   
+
+    .profile__button-retention_disabled {
+        max-width: 260px;
+        margin-top: 157px;
+        font-size: 12px;
+        font-weight: 500;
+        }
+
+    .profile__button-transition {
         font-size: 12px;
         line-height: normal;
     }

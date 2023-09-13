@@ -23,6 +23,10 @@ line-height: normal;
 height: 38px;
 }
 
+.auth__logo:hover {
+opacity: 0.8;
+}
+
 @media screen and (min-width: 767px) and (max-width: 1279px) {
     .auth__container {
         margin: 232px 186px;

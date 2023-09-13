@@ -12,6 +12,10 @@ line-height: 18px;
 margin-left: 12px;
 }
 
+.search__checkbox-text:hover {
+  opacity: 0.8;
+}
+
 .search__checkbox-label {
   padding: 0;
   width: 100%;

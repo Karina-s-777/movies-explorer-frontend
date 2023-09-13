@@ -22,6 +22,7 @@
     justify-content: center;
     gap: 40px;
     margin: 0;
+    align-self: center
 }
 
 .about-project__card {
@@ -49,6 +50,7 @@
     max-width: 1140px;
     padding: 110px 0 0 0;
     width: 100%;
+    align-self: center
 }
 
 .about-project__time-card {

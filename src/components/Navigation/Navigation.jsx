@@ -41,42 +41,52 @@ function Navigation({ name }) {
     <nav className="navigation">
       {name === "promo" && !islogedIn ? (
         <>
-          <div className="navigation__container navigation__container_promo">
-            <Link
-              to="/signup"
-              // onClick={onSignOut}
-              className="navigation__butten navigation__butten-no-authorization"
-            >
-              Регистрация
-            </Link>
-            <Link
-              to="/signin"
-              // onClick={onSignOut}
-              className="navigation__butten navigation__butten-login navigation__butten-no-authorization"
-            >
-              Войти
-            </Link>
-          </div>
+          <ul className="navigation__container navigation__container_promo">
+            <li>
+              <Link
+                to="/signup"
+                // onClick={onSignOut}
+                className="navigation__butten navigation__butten-no-authorization"
+              >
+                Регистрация
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/signin"
+                // onClick={onSignOut}
+                className="navigation__butten navigation__butten-login navigation__butten-no-authorization"
+              >
+                Войти
+              </Link>
+            </li>
+          </ul>
         </>
       ) : name === "promo" && islogedIn ? (
         <>
           <div className="navigation__container navigation__container-authorization">
-            <div className="navigation__container_movies">
-              <Link
-                to="/movies"
-                // onClick={onSignOut}
-                className="navigation__butten"
-              >
-                Фильмы
-              </Link>
-              <Link
-                to="/saved-movies"
-                // onClick={onSignOut}
-                className="navigation__butten"
-              >
-                Сохранённые фильмы
-              </Link>
-            </div>
+            <ul className="navigation__grid">
+              <li>
+                {" "}
+                <Link
+                  to="/movies"
+                  // onClick={onSignOut}
+                  className="navigation__butten"
+                >
+                  Фильмы
+                </Link>
+              </li>
+              <li>
+                {" "}
+                <Link
+                  to="/saved-movies"
+                  // onClick={onSignOut}
+                  className="navigation__butten"
+                >
+                  Сохранённые фильмы
+                </Link>
+              </li>
+            </ul>
             <div className="navigation__profile">
               <Link
                 to="/profile"
@@ -126,24 +136,25 @@ function Navigation({ name }) {
                   </li>
                   <li className="navigation__menubox-line ">
                     <Link
-                      to="/saved-movies" className="navigation__menubox-text"
+                      to="/saved-movies"
+                      className="navigation__menubox-text"
                     >
                       Сохранённые фильмы
                     </Link>
                   </li>
                   <li className="navigation__menubox-line">
-                  <Link
-                  to="/profile"
-                  // onClick={onSignOut}
-                  className="navigation__butten"
-                >
-                  Аккаунт{" "}
-                  <img
-                    className="navigation__profile-img"
-                    alt="логотип профиля"
-                    src={imgProfile}
-                  ></img>
-                </Link>
+                    <Link
+                      to="/profile"
+                      // onClick={onSignOut}
+                      className="navigation__butten"
+                    >
+                      Аккаунт{" "}
+                      <img
+                        className="navigation__profile-img"
+                        alt="логотип профиля"
+                        src={imgProfile}
+                      ></img>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -153,22 +164,26 @@ function Navigation({ name }) {
       ) : (
         <>
           <div className="navigation__container navigation__container-authorization">
-            <div className="navigation__container_movies">
-              <Link
-                to="/movies"
-                // onClick={onSignOut}
-                className="navigation__butten"
-              >
-                Фильмы
-              </Link>
-              <Link
-                to="/saved-movies"
-                // onClick={onSignOut}
-                className="navigation__butten"
-              >
-                Сохранённые фильмы
-              </Link>
-            </div>
+            <ul className="navigation__grid">
+              <li>
+                <Link
+                  to="/movies"
+                  // onClick={onSignOut}
+                  className="navigation__butten"
+                >
+                  Фильмы
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/saved-movies"
+                  // onClick={onSignOut}
+                  className="navigation__butten"
+                >
+                  Сохранённые фильмы
+                </Link>
+              </li>
+            </ul>
             <div className="navigation__profile">
               <Link
                 to="/profile"
@@ -218,24 +233,25 @@ function Navigation({ name }) {
                   </li>
                   <li className="navigation__menubox-line ">
                     <Link
-                      to="/saved-movies" className="navigation__menubox-text"
+                      to="/saved-movies"
+                      className="navigation__menubox-text"
                     >
                       Сохранённые фильмы
                     </Link>
                   </li>
                   <li className="navigation__menubox-line">
-                  <Link
-                  to="/profile"
-                  // onClick={onSignOut}
-                  className="navigation__butten"
-                >
-                  Аккаунт{" "}
-                  <img
-                    className="navigation__profile-img"
-                    alt="логотип профиля"
-                    src={imgProfile}
-                  ></img>
-                </Link>
+                    <Link
+                      to="/profile"
+                      // onClick={onSignOut}
+                      className="navigation__butten"
+                    >
+                      Аккаунт{" "}
+                      <img
+                        className="navigation__profile-img"
+                        alt="логотип профиля"
+                        src={imgProfile}
+                      ></img>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -244,7 +260,7 @@ function Navigation({ name }) {
         </>
       )}
     </nav>
-  );
+  )
 }
 
 export default Navigation;

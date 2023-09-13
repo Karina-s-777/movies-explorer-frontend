@@ -51,6 +51,10 @@ border: none;
 cursor: pointer;
 }
 
+.search__form-button-submit:hover {
+  opacity: 0.8;
+}
+
 
 @media screen and (min-width: 767px) and (max-width: 1279px) {
   .search__form {
