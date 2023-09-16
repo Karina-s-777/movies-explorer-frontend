@@ -1,0 +1,44 @@
+.auth__about-input {
+    color: #8B8B8B;
+font-size: 10px;
+font-weight: 400;
+line-height: normal;
+padding: 0;
+margin: 0 0 10px 0;
+}
+
+.auth__input-error {
+    color: #EE3465;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.auth__input-error-noactive {
+    display: none;
+}
+
+.auth__input {
+    border: none;
+    border-radius: 8px;
+    background: #2F2F2F;
+    padding-left: 16px;
+    margin: 0 0 20px 0;
+    width: 380px;
+    height: 46px;
+    color: #FFF;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.auth__input:hover {
+    border-bottom: 1px solid rgba(66,133,244,.2);
+}
+
+@media screen and (max-width: 767px) {
+    .auth__input  {
+        max-width: 260px;
+        font-size: 13px;
+        }   
+}

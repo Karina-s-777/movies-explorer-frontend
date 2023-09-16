@@ -1,0 +1,54 @@
+.movies-card__button {
+    background: transparent;
+    background-image: url("../../../images/like-noactive.svg");
+    min-width: 14px;
+    height: 12px;
+    border: none;
+    padding: 0;
+    margin: 4px 0 0 0;
+    align-self: flex-start;
+    cursor: pointer;
+}
+
+.movies-card__button:hover {
+    opacity: 0.8;
+}
+
+.movies-card__button_active {
+    background: transparent;
+    background-image: url("../../../images/like.svg");
+    min-width: 14px;
+    height: 12px;
+    border: none;
+    padding: 0;
+    margin: 4px 0 0 0;
+    align-self: flex-start;
+    cursor: pointer;
+}
+
+.movies-card__button_active:hover {
+opacity: 0.8;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1279px) {
+    .movies-card__button {
+        margin: 4px 8px 0 0;
+    }
+
+    .movies-card__button_active {
+        margin: 4px 8px 0 0;
+    }
+
+}
+
+@media screen and (max-width: 767px) {
+     .movies-card__button {
+         margin: 0 4px 6px 0;
+         align-self: flex-start;
+     }
+     
+     .movies-card__button_active {
+         margin: 4px 6px 0 0;
+     }
+
+ }

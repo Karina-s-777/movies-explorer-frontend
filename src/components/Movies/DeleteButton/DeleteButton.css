@@ -1,0 +1,30 @@
+.movies-card__button-delete {
+    background: transparent;
+    background-image: url("../../../images/d5.svg");
+    min-width: 14px;
+    height: 12px;
+    align-self: center;
+    border: none;
+    margin-top: 30px;
+    margin: 4px 0 0 0;
+    align-self: flex-start;
+    cursor: pointer;
+}
+
+.movies-card__button-delete:hover {
+    opacity: 0.8;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1279px) {
+
+    .movies-card__button-delete {
+        margin: 4px 8px 0 0;
+    }
+}
+
+@media screen and (max-width: 767px) {
+ 
+     .movies-card__button-delete {
+         margin: 4px 6px 0 0;
+     }
+ }
