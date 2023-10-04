@@ -1,11 +1,12 @@
 import "./DeleteButton.css";
 
-function DeleteButton() {
+function DeleteButton({ onDeleteMovie, movieData }) {
   return (
-        <button
-          className="movies-card__button-delete"
-          type="button"
-        ></button>
+    <button
+      className="movies-card__button-delete"
+      type="button"
+      onClick={() => onDeleteMovie(movieData._id)}
+    ></button>
   );
 }
 

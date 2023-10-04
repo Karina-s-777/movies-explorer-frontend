@@ -10,12 +10,12 @@ function Authorization({ name, children }) {
         onClick={(event) => event.stopPropagation()}
       >
         <Link to="/">
-      <img
-        src={vectorLogo}
-        alt="логотип социальной сети"
-        className="auth__logo"
-      />
-      </Link>
+          <img
+            src={vectorLogo}
+            alt="логотип социальной сети"
+            className="auth__logo"
+          />
+        </Link>
         <h1 className="auth__title">
           {" "}
           {name === "signup" ? "Добро пожаловать!" : "Рады видеть!"}
