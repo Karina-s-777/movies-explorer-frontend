@@ -21,11 +21,11 @@ function MoviesCardList({
     const updateVisibleCards = () => {
       const screenWidth = window.innerWidth;
       if (screenWidth >= 1280) {
-        setVisibleCards(3);
+        setVisibleCards(12);
       } else if (screenWidth >= 768) {
-        setVisibleCards(3);
+        setVisibleCards(8);
       } else if (screenWidth >= 480) {
-        setVisibleCards(3);
+        setVisibleCards(5);
       } else {
         setVisibleCards(5);
       }
@@ -42,11 +42,11 @@ function MoviesCardList({
   const handleShowMore = () => {
     const screenWidth = window.innerWidth;
     if (screenWidth >= 1280) {
-      setVisibleCards(visibleCards + 3); // например, увеличиваем на 4 карточки
+      setVisibleCards(visibleCards + 3);
     } else if (screenWidth >= 768) {
-      setVisibleCards(visibleCards + 3);
+      setVisibleCards(visibleCards + 2);
     } else if (screenWidth >= 480) {
-      setVisibleCards(visibleCards + 3);
+      setVisibleCards(visibleCards + 2);
     } else {
       setVisibleCards(visibleCards + 2);
     }
@@ -104,7 +104,7 @@ function MoviesCardList({
           </span>
         )}
       </ul>
-      {name === "movies" && (
+      {name === "movies" && !firstEntrance  && visibleCards < cards.length && (
         <button
           className="movies-card-list__button"
           type="button"
