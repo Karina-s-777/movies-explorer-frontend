@@ -28,11 +28,19 @@ export default function useFormValidation() {
     // значение поля инпута, которое мы вводим "сейчас"
     const value = e.target.value
     // значение ошибки
-    const validationMessage = e.target.validationMessage
+    let validationMessage = e.target.validationMessage
     // записывает свойства validaty value интупа. 
     const valid = e.target.validity.valid
     // отвечает за вывод всей формы
     const form = e.target.form
+
+    // Дополнительные проверки могут быть добавлены для специфических полей
+  if (name === "email") {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(value)) {
+      validationMessage = "Неверный формат email адреса";
+    }
+  }
 
     // Функуция получает старые данные/значения из нашего стейта/объекта values, внутри деструктурируем, раскладывая на свойства.
     // Если он пустой, в него запишутся свойства интута name и about по имени самого INPUT. То есть, мы вводим данные в форму сперва в имени, например,

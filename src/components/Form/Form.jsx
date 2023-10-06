@@ -10,6 +10,12 @@ export default function Form({
   onSubmit,
   isError,
 }) {
+
+  // Определите классы для кнопки на основе значения isValid
+  const buttonClass = `${name === "signup" && "auth__button-retention"}
+    ${name === "signin" && "auth__button-retention_login"}
+    ${!isValid ? (name === "signin" ? "auth__button-submit-disabled" : "auth__button-submit-disabled_login") : ""}`;
+
   return (
     <>
       <form
@@ -29,18 +35,7 @@ export default function Form({
           </span>
           <button
             type="submit"
-            className={`${name === "signup" && "auth__button-retention"}
-              ${name === "signin" && "auth__button-retention_login"}
-              ${
-                isValid || name === "signin"
-                  ? ""
-                  : "auth__button-submit-disabled"
-              }
-              ${
-                isValid || name === "signup"
-                  ? ""
-                  : "auth__button-submit-disabled_login"
-              }`}
+            className={buttonClass}
             disabled={!isValid || isError}
           >
             {nameButton}
