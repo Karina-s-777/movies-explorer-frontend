@@ -3,53 +3,46 @@ import SearchForm from "../Movies/SearchForm/SearchForm.jsx";
 import "./SavedMovies.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 function SavedMovies({ savedMovies, onDeleteMovie }) {
   // отфильтрованный массив данных фильмов
   const [filteredMovies, setFilteredMovies] = useState(savedMovies);
   // стейт запроса поиска - какой фильм ищем и его длину
-  const [savedSearch, setSavedSearch] = useState({ movies: "", shorts: false });
+  const [savedSearch, setSavedSearch] = useState("");
   const [isCheck, setIsCheck] = useState(false);
   const [firstEntrance, setFirstEntrance] = useState(true);
 
-  function filter(search, isShort) {
-    const filteredMovies = savedMovies.filter((movie) => {
-      const searchName =
-        typeof search === "string" &&
-        (movie.nameRU.toLowerCase().includes(search.toLowerCase()) ||
-          movie.nameEN.toLowerCase().includes(search.toLowerCase()));
-      return isShort ? searchName && movie.duration <= 40 : searchName;
-    });
-    setFilteredMovies(filteredMovies);
-  }
+  const filter = useCallback((search, isCheck, movies) => {
+    setSavedSearch(search)
+    setFilteredMovies(
+     
+      movies.filter((movie) => {
+        const searchName =
+        (movie.nameRU.toLowerCase().includes(search.toLowerCase())) ||
+        (movie.nameEN.toLowerCase().includes(search.toLowerCase()));
+       
+        // если мы ищем короткометражки, то проверяем и имя и продолжительность, иначе только имя
+        return isCheck ? searchName && movie.duration <= 40 : searchName;
+      }),
+    )
+  }, [])
 
   useEffect(() => {
     if (savedMovies.length === 0) {
-      setFirstEntrance(true);
-      setFilteredMovies([]);
+      setFirstEntrance(true)
     } else {
-      setFirstEntrance(false);
-      if (isCheck) {
-        const shortMovies = savedMovies.filter((movie) => movie.duration <= 40);
-        setFilteredMovies(shortMovies);
-      } else {
-        setFilteredMovies(savedMovies);
-      }
+      setFirstEntrance(false)
     }
-  }, [savedMovies, isCheck]);
+    filter(savedSearch, isCheck, savedMovies)
+  }, [filter, savedMovies, isCheck, savedSearch])
 
   function getingFilms(search) {
     setFirstEntrance(false);
     setSavedSearch(search);
-    filter(search, isCheck);
+    filter(search, isCheck, savedMovies);
   }
 
-  function changeShort() {
-    setIsCheck(!isCheck);
-    setFirstEntrance(false);
-    filter(savedSearch, !isCheck);
-  }
 
   return (
     <>
@@ -59,13 +52,16 @@ function SavedMovies({ savedMovies, onDeleteMovie }) {
           isCheck={isCheck}
           getingFilms={getingFilms}
           savedSearch={savedSearch}
-          changeShort={changeShort}
+          // changeShort={changeShort}
           firstEntrance={firstEntrance}
           savedMovies={savedMovies}
+          moviesData={savedMovies}
+          filter={filter}
+          setIsCheck={setIsCheck}
         />
         <MoviesCardList
           name="saved-movies"
-          cards={filteredMovies.length > 0 ? filteredMovies : savedMovies}
+          cards={filteredMovies}
           onDeleteMovie={onDeleteMovie}
         />
       </main>

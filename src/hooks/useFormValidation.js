@@ -1,8 +1,16 @@
 // хук useFormValidation будет управлять value инпута в EditProfilePopup (вместо предложенных  стейт-переменных name и description )
 import { useCallback, useState } from "react";
 export default function useFormValidation() {
+
+  const initialValues = {
+    searchInput: '',
+    nameUser: '',
+    email: '',
+    password: '',
+  };
+  
   // стейт отвечает за все value ипута
-  const [values, setValues] = useState({});
+  const [values, setValues] = useState(initialValues);
   // стейт отвечает за сообщение ошибки - validation message. Будет пустым объектом сперва. И по имени инпута будем класть сюда ошибку
   const [errors, setErrors] = useState({});
   // стейт отвечает за валидость формы. Например, когда он false. кнопка не работает

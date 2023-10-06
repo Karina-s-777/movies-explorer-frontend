@@ -223,6 +223,7 @@ function App() {
                         <Movies
                           onLikeOrDeleteMovie={toggleLikeAndDeleteMovie}
                           savedMovies={savedMovies}
+                          name="movies"
                         />
                       }
                     />

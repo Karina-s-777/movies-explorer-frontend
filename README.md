@@ -29,8 +29,6 @@
 
 ## Ссылки на проект
 
-git@github.com:Karina-s-777/movies-explorer-frontend.git
-
 https://github.com/Karina-s-777/movies-explorer-frontend/pull/2 - ссылка на pull request
 
 karinasav.diplom.nomoredomainsicu.ru - ccылка на Фронт проекта

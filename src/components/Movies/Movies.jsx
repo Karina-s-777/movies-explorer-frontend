@@ -6,7 +6,7 @@ import Footer from "../Footer/Footer.jsx";
 import apiMovies from "../../utils/MoviesApi.js";
 import { useCallback, useEffect, useState } from "react";
 
-function Movies({ onLikeOrDeleteMovie, savedMovies }) {
+function Movies({ onLikeOrDeleteMovie, savedMovies, name }) {
   // первоначальный массив данных фильмов с сервера
   const [allMoviesData, setAllMoviesData] = useState([]);
   // отфильтрованный массив данных фильмов
@@ -26,10 +26,12 @@ function Movies({ onLikeOrDeleteMovie, savedMovies }) {
     localStorage.setItem("allmovies", JSON.stringify(movies));
     // и далее осуществляем саму фильтрацию
     setFilteredMovies(
+      
       movies.filter((movie) => {
         const searchName =
-          movie.nameRU.toLowerCase().includes(search.toLowerCase()) ||
-          movie.nameEN.toLowerCase().includes(search.toLowerCase());
+        (movie.nameRU.toLowerCase().includes(search.toLowerCase())) ||
+        (movie.nameEN.toLowerCase().includes(search.toLowerCase()));
+       
         // если мы ищем короткометражки, то проверяем и имя и продолжительность, иначе только имя
         return isCheck ? searchName && movie.duration <= 40 : searchName;
       }),
@@ -60,9 +62,9 @@ function Movies({ onLikeOrDeleteMovie, savedMovies }) {
 
   useEffect(() => {
     if (localStorage.allmovies && localStorage.shorts && localStorage.movie) {
-      const movies = JSON.parse(localStorage.allmovies);
-      const search = JSON.parse(localStorage.movie);
-      const isCheck = JSON.parse(localStorage.shorts);
+      const movies = JSON.parse(localStorage.allmovies) || [];
+      const search = JSON.parse(localStorage.movie || ' ');
+      const isCheck = JSON.parse(localStorage.shorts) || false;
       setServerError(false);
       setFirstEntrance(false);
       setSavedSearch(search);
@@ -72,15 +74,6 @@ function Movies({ onLikeOrDeleteMovie, savedMovies }) {
     }
   }, [filter]);
 
-  function changeShort() {
-    // Если isCheckесть true, то становится false, и наоборот.
-    const updatedIsCheck = !isCheck;
-    // устанавливаем состояние, вызываем filter обновленное значение и обновляем локальное хранилище
-    setIsCheck(updatedIsCheck);
-    filter(savedSearch, updatedIsCheck, allMoviesData);
-    localStorage.setItem("shorts", JSON.stringify(updatedIsCheck));
-  }
-
   return (
     <>
       <Header name="movies" />
@@ -88,9 +81,12 @@ function Movies({ onLikeOrDeleteMovie, savedMovies }) {
         <SearchForm
           savedSearch={savedSearch}
           getingFilms={getingFilms}
-          changeShort={changeShort}
+          moviesData={allMoviesData}
+          setIsCheck={setIsCheck}
+          filter={filter}
           firstEntrance={firstEntrance}
           isCheck={isCheck}
+          name={name}
         />
         <MoviesCardList
           name="movies"

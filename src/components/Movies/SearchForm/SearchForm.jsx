@@ -2,23 +2,51 @@ import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 import "./SearchForm.css";
 import { useEffect } from "react";
 import useFormValidation from "../../../hooks/useFormValidation";
+import { useLocation } from "react-router-dom";
 
 function SearchForm({
-  savedSearch,
+  savedMovies,
   isCheck,
   getingFilms,
-  changeShort,
   firstEntrance,
+  moviesData,
+  setIsCheck,
+  filter,
+  name
 }) {
+  
   const { values, handleChange, reset } = useFormValidation();
 
+// Загрузка значения из localStorage при первой загрузке компонента
   useEffect(() => {
-    reset({ search: savedSearch });
-  }, [savedSearch, reset]);
+    const savedSearch = localStorage.getItem("searchInputValue");
+    if (savedSearch && name ==='movies') {
+      reset({ searchInput: savedSearch });
+    } else {
+      reset({ searchInput: '' });
+    }
+  }, [reset, name]);
+
+  function changeShort() {
+    if (isCheck) {
+      setIsCheck(false)
+      filter(values.searchInput, false, moviesData)
+      } else {
+      setIsCheck(true)
+      filter(values.searchInput, true, moviesData)
+      }
+       // Сохраняем значение поиска в localStorage при изменении чекбокса
+    localStorage.setItem("searchInputValue", values.searchInput || "");
+  }
+
+  
 
   function onSubmit(evt) {
     evt.preventDefault();
-    if (evt.target.searchInput.value) {
+    const searchInputValue = evt.target.searchInput.value;
+    if (searchInputValue) {
+       // Сохраняем значение поиска в localStorage
+      localStorage.setItem("searchInputValue", searchInputValue);
       getingFilms(evt.target.searchInput.value);
     } else {
       console.log("Не получилось");
