@@ -2,6 +2,7 @@ import "./Login.css";
 import Form from "../Form/Form";
 import Authorization from "../Authorization/Authorization";
 import useFormValidation from "../../hooks/useFormValidation";
+import { EmailRegex } from "../../utils/constants";
 
 function Login({ name, onLogin, isError, setIsError }) {
   const { values, isValid, handleChange, errors } = useFormValidation();
@@ -31,6 +32,7 @@ function Login({ name, onLogin, isError, setIsError }) {
           className={`${!isValid ? "auth__input_with-error" : "auth__input"}`}
           placeholder="Email"
           required
+          pattern={EmailRegex}
           minLength="2"
           value={values.email ? values.email : ""}
           onChange={(evt) => {

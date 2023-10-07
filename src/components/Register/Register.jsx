@@ -3,6 +3,7 @@ import "./Register.css";
 import Form from "../Form/Form";
 import Authorization from "../Authorization/Authorization";
 import useFormValidation from "../../hooks/useFormValidation";
+import { EmailRegex } from '../../utils/constants';
 
 function Register({ name, onRegister }) {
   const { values, isValid, handleChange, errors } = useFormValidation();
@@ -52,6 +53,7 @@ function Register({ name, onRegister }) {
           className={`${!isValid ? "auth__input_with-error" : "auth__input"}`}
           placeholder="Email"
           required
+          pattern={EmailRegex}
           minLength="2"
           value={values.email ? values.email : ""}
           onChange={handleChange}

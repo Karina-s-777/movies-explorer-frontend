@@ -5,6 +5,7 @@ import Header from "../Header/Header";
 import useFormValidation from "../../hooks/useFormValidation";
 
 import CurrentUserContext from '../../contexts/CurrentUserContext'
+import { EmailRegex } from "../../utils/constants";
 
 function Profile({ editUserData, logOut, isError, isSuccess, setIsSuccess, setIsError }) {
   const currentUser = useContext(CurrentUserContext);
@@ -78,6 +79,7 @@ function Profile({ editUserData, logOut, isError, isSuccess, setIsSuccess, setIs
               type="email"
               id="email"
               name="email"
+              pattern={EmailRegex}
               required
               placeholder="cat@gmail.com"
               minLength="2"
