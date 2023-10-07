@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Profile.css";
 import { useContext, useEffect, useState } from "react";
 import Header from "../Header/Header";
@@ -16,6 +16,19 @@ function Profile({ editUserData, logOut, isError, isSuccess, setIsSuccess, setIs
     reset({ username: currentUser.name, email: currentUser.email });
     setIsUserDataChanged(false); // Сбросить isUserDataChanged при сбросе значений
   }, [reset, currentUser]);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    // Проверить, было ли успешное сообщение отображено
+    const isSuccessDisplayed = localStorage.getItem("successMessageDisplayed");
+    if (isSuccessDisplayed === "true") {
+      setIsSuccess(false); // Скрыть сообщение "Успешно"
+    }
+  
+    // Скрывать сообщение "Успешно" при каждом изменении маршрута
+    setIsSuccess(false);
+  }, [location]);
 
   useEffect(() => {
     if (values.username !== currentUser.name || values.email !== currentUser.email) {

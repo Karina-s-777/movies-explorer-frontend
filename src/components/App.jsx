@@ -96,6 +96,8 @@ function App() {
         setIsLoggedIn(true);
         window.scrollTo(0, 0);
         navigate("/movies");
+        localStorage.setItem("successMessageDisplayed", "true"); // Установить флаг
+        setIsSuccess(false);
       })
       .catch((err) => {
         setIsError(true);
