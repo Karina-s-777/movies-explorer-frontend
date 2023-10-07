@@ -3,6 +3,7 @@ import MoviesCard from "../MoviesCard/MoviesCard";
 import Preloader from "../Preloader/Preloader";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { CARDS_TO_ADD, MAX_CARDS_LARGE_SCREEN, MAX_CARDS_MEDIUM_SCREEN, MAX_CARDS_SMALL_SCREEN } from "../../../utils/constants";
 
 function MoviesCardList({
   name,
@@ -21,13 +22,13 @@ function MoviesCardList({
     const updateVisibleCards = () => {
       const screenWidth = window.innerWidth;
       if (screenWidth >= 1280) {
-        setVisibleCards(12);
+        setVisibleCards(MAX_CARDS_LARGE_SCREEN);
       } else if (screenWidth >= 768) {
-        setVisibleCards(8);
+        setVisibleCards(MAX_CARDS_MEDIUM_SCREEN);
       } else if (screenWidth >= 480) {
-        setVisibleCards(5);
+        setVisibleCards(MAX_CARDS_SMALL_SCREEN);
       } else {
-        setVisibleCards(5);
+        setVisibleCards(MAX_CARDS_SMALL_SCREEN);
       }
     };
 
@@ -42,13 +43,13 @@ function MoviesCardList({
   const handleShowMore = () => {
     const screenWidth = window.innerWidth;
     if (screenWidth >= 1280) {
-      setVisibleCards(visibleCards + 3);
+      setVisibleCards(visibleCards + CARDS_TO_ADD);
     } else if (screenWidth >= 768) {
-      setVisibleCards(visibleCards + 2);
+      setVisibleCards(visibleCards + CARDS_TO_ADD - 1);
     } else if (screenWidth >= 480) {
-      setVisibleCards(visibleCards + 2);
+      setVisibleCards(visibleCards + CARDS_TO_ADD - 1);
     } else {
-      setVisibleCards(visibleCards + 2);
+      setVisibleCards(visibleCards + CARDS_TO_ADD - 1);
     }
   };
 

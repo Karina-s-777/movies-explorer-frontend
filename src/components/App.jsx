@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import { useState, useEffect } from "react";
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import Header from "./Header/Header.jsx";
 import Footer from "./Footer/Footer.jsx";
@@ -177,7 +176,6 @@ function App() {
             <div className="page">
               <div className="page__content">
                 <Routes>
-                  <Route path="*" element={<NotFound />} />
                   <Route
                     path="/signup"
                     element={
@@ -207,6 +205,7 @@ function App() {
                       )
                     }
                   />
+                  <Route path="*" element={<NotFound/>} />
                   <Route
                     path="/"
                     element={
@@ -252,15 +251,6 @@ function App() {
                       }
                     />
                   </Route>
-
-                  <Route
-                    path="/notfound"
-                    element={
-                      <>
-                        <NotFound />
-                      </>
-                    }
-                  />
                 </Routes>
               </div>
             </div>

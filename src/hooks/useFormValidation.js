@@ -34,7 +34,6 @@ export default function useFormValidation() {
     // отвечает за вывод всей формы
     const form = e.target.form
 
-    // Дополнительные проверки могут быть добавлены для специфических полей
   if (name === "email") {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailRegex.test(value)) {

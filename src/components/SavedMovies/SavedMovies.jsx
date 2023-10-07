@@ -4,6 +4,7 @@ import "./SavedMovies.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { useCallback, useEffect, useState } from "react";
+import { shortFilmDuration } from "../../utils/constants";
 
 function SavedMovies({ savedMovies, onDeleteMovie }) {
   // отфильтрованный массив данных фильмов
@@ -23,7 +24,7 @@ function SavedMovies({ savedMovies, onDeleteMovie }) {
         (movie.nameEN.toLowerCase().includes(search.toLowerCase()));
        
         // если мы ищем короткометражки, то проверяем и имя и продолжительность, иначе только имя
-        return isCheck ? searchName && movie.duration <= 40 : searchName;
+        return isCheck ? searchName && movie.duration <= shortFilmDuration : searchName;
       }),
     )
   }, [])

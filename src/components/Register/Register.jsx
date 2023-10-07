@@ -1,3 +1,4 @@
+import React from 'react';
 import "./Register.css";
 import Form from "../Form/Form";
 import Authorization from "../Authorization/Authorization";
@@ -25,7 +26,7 @@ function Register({ name, onRegister }) {
       >
         <span className="auth__about-input">Имя</span>
         <input
-          type="nameUser"
+          type="text"
           id="nameUser"
           name="nameUser"
           className={`${!isValid ? "auth__input_with-error" : "auth__input"}`}

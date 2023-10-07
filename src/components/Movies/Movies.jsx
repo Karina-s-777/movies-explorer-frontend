@@ -5,6 +5,7 @@ import Header from "../Header/Header.jsx";
 import Footer from "../Footer/Footer.jsx";
 import apiMovies from "../../utils/MoviesApi.js";
 import { useCallback, useEffect, useState } from "react";
+import { shortFilmDuration } from "../../utils/constants.js";
 
 function Movies({ onLikeOrDeleteMovie, savedMovies, name }) {
   // первоначальный массив данных фильмов с сервера
@@ -33,7 +34,7 @@ function Movies({ onLikeOrDeleteMovie, savedMovies, name }) {
         (movie.nameEN.toLowerCase().includes(search.toLowerCase()));
        
         // если мы ищем короткометражки, то проверяем и имя и продолжительность, иначе только имя
-        return isCheck ? searchName && movie.duration <= 40 : searchName;
+        return isCheck ? searchName && movie.duration <= shortFilmDuration : searchName;
       }),
     );
   }, []);
