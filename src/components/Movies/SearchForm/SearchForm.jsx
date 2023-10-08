@@ -12,41 +12,40 @@ function SearchForm({
   moviesData,
   setIsCheck,
   filter,
-  name
+  name,
 }) {
-  
   const { values, handleChange, reset } = useFormValidation();
 
-// Загрузка значения из localStorage при первой загрузке компонента
+  // Загрузка значения из localStorage при первой загрузке компонента
   useEffect(() => {
     const savedSearch = localStorage.getItem("searchInputValue");
-    if (savedSearch && name ==='movies') {
+    if (savedSearch && name === "movies") {
       reset({ searchInput: savedSearch });
     } else {
-      reset({ searchInput: '' });
+      reset({ searchInput: "" });
     }
   }, [reset, name]);
 
   function changeShort() {
     if (isCheck) {
-      setIsCheck(false)
-      filter(values.searchInput, false, moviesData)
-      } else {
-      setIsCheck(true)
-      filter(values.searchInput, true, moviesData)
-      }
-       // Сохраняем значение поиска в localStorage при изменении чекбокса
-       if (name === 'movies') {
-        localStorage.setItem("searchInputValue", values.searchInput || "");
-       }
+      setIsCheck(false);
+      filter(values.searchInput, false, moviesData);
+    } else {
+      setIsCheck(true);
+      filter(values.searchInput, true, moviesData);
+    }
+    // Сохраняем значение поиска в localStorage при изменении чекбокса
+    if (name === "movies") {
+      localStorage.setItem("searchInputValue", values.searchInput || "");
+    }
   }
 
   function onSubmit(evt) {
     evt.preventDefault();
     const searchInputValue = evt.target.searchInput.value;
     getingFilms(evt.target.searchInput.value);
-    if (searchInputValue && name === 'movies') {
-       // Сохраняем значение поиска в localStorage
+    if (searchInputValue && name === "movies") {
+      // Сохраняем значение поиска в localStorage
       localStorage.setItem("searchInputValue", searchInputValue);
     }
   }
