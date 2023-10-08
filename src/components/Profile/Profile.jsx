@@ -12,6 +12,8 @@ function Profile({ editUserData, logOut, isError, isSuccess, setIsSuccess, setIs
   const { values, isValid, handleChange, reset } = useFormValidation();
   const [isVisibleSubmit, setIsVisibleSubmit] = useState(false);
   const [isUserDataChanged, setIsUserDataChanged] = useState(false);
+  // Добавляем состояние для режима редактирования
+  const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
     reset({ username: currentUser.name, email: currentUser.email });
@@ -50,6 +52,7 @@ function Profile({ editUserData, logOut, isError, isSuccess, setIsSuccess, setIs
   function makeButtonVisible() {
     setIsVisibleSubmit(true);
     setIsUserDataChanged(false);  // Сбрасываем isUserDataChanged, когда кнопка становится видимой
+    setIsEditing(true); // Включаем режим редактирования при нажатии "редактировать"
   }
 
   return (
@@ -70,6 +73,7 @@ function Profile({ editUserData, logOut, isError, isSuccess, setIsSuccess, setIs
               minLength="2"
               value={values.username ? values.username : ""}
               onChange={(evt) => { handleChange(evt); setIsUserDataChanged(true); }}
+              disabled={!isEditing}
             />
           </div>
           <div className="profile__container-info">
@@ -85,6 +89,7 @@ function Profile({ editUserData, logOut, isError, isSuccess, setIsSuccess, setIs
               minLength="2"
               value={values.email ? values.email : ""}
               onChange={(evt) => { handleChange(evt); setIsUserDataChanged(true); }}
+              disabled={!isEditing}
             />
           </div>
         </form>

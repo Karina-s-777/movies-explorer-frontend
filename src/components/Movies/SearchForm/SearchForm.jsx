@@ -36,20 +36,18 @@ function SearchForm({
       filter(values.searchInput, true, moviesData)
       }
        // Сохраняем значение поиска в localStorage при изменении чекбокса
-    localStorage.setItem("searchInputValue", values.searchInput || "");
+       if (name === 'movies') {
+        localStorage.setItem("searchInputValue", values.searchInput || "");
+       }
   }
-
-  
 
   function onSubmit(evt) {
     evt.preventDefault();
     const searchInputValue = evt.target.searchInput.value;
-    if (searchInputValue) {
+    getingFilms(evt.target.searchInput.value);
+    if (searchInputValue && name === 'movies') {
        // Сохраняем значение поиска в localStorage
       localStorage.setItem("searchInputValue", searchInputValue);
-      getingFilms(evt.target.searchInput.value);
-    } else {
-      console.log("Не получилось");
     }
   }
 
