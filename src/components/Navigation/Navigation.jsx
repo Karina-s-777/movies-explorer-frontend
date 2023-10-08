@@ -4,7 +4,7 @@ import "./Navigation.css";
 import imgProfile from "../../images/icon__COLOR_icon-main.svg";
 import { useState } from "react";
 
-function Navigation({ name }) {
+function Navigation({ name, isLoggedIn }) {
   // function onSignOut() {
   //   localStorage.removeItem("jwt");
   // }
@@ -13,7 +13,7 @@ function Navigation({ name }) {
   const [isOpenBurger, setIsOpenBurger] = useState(false);
 
   // логикой потом перекину setIslogedIn в нужные места для смены false на true и обратно
-  const [islogedIn, setIslogedIn] = useState(false);
+  // const [islogedIn, setIslogedIn] = useState(false);
 
   function openBurgerMenu() {
     setIsOpenBurger(true);
@@ -39,7 +39,7 @@ function Navigation({ name }) {
 
   return (
     <nav className="navigation">
-      {name === "promo" && !islogedIn ? (
+      {name === "promo" && !isLoggedIn ? (
         <>
           <ul className="navigation__container navigation__container_promo">
             <li>
@@ -62,7 +62,7 @@ function Navigation({ name }) {
             </li>
           </ul>
         </>
-      ) : name === "promo" && islogedIn ? (
+      ) : name === "promo" && isLoggedIn ? (
         <>
           <div className="navigation__container navigation__container-authorization">
             <ul className="navigation__grid">
@@ -260,7 +260,7 @@ function Navigation({ name }) {
         </>
       )}
     </nav>
-  )
+  );
 }
 
 export default Navigation;

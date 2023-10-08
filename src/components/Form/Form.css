@@ -28,7 +28,7 @@
     opacity: 0.8;
 }
 
-.auth__button-retention-login {
+.auth__button-retention_login {
     margin-top: 159px;
     border-radius: 3px;
     background: #4285F4;
@@ -45,6 +45,30 @@
     border: none;
     cursor: pointer;
 }
+
+.auth__error-request {
+    visibility: hidden;
+    display: block;
+    width: 100%;
+    min-height: 14px;
+    margin-top: 117px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: normal;
+    color: #FF004C;
+  }
+
+  .auth__error-request_active {
+    width: 100%;
+    min-height: 14px;
+    margin-top: 117px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: normal;
+    color: #FF004C;
+  }
 
 .auth__button-retention-login:hover {
     opacity: 0.8;
@@ -68,7 +92,7 @@
     cursor: pointer;
 }
 
-.auth__button-submit-disabled-login {
+.auth__button-submit-disabled_login {
     border-radius: 3px;
     background: #F8F8F8;
     width: 396px;
@@ -115,7 +139,7 @@
 font-weight: 500;
         }   
 
-    .auth__button-retention-login {
+    .auth__button-retention_login {
     max-width: 260px;
     margin-top: 247px;
     font-size: 12px;
@@ -138,7 +162,7 @@ font-weight: 400;
 font-weight: 500;
 }
 
-.auth__button-submit-disabled-login {
+.auth__button-submit-disabled_login {
     max-width: 260px;
     margin-top: 247px;
     font-size: 12px;

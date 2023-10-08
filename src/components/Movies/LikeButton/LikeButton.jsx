@@ -1,16 +1,15 @@
 // import { useState } from "react";
 import "./LikeButton.css";
 
-function LikeButton() {
-
-  // далее в логике будет стейт и функция, которая пререключает по нажатию классы лайка туда-сюда
-  const disable = false;
-
+function LikeButton({ onClick, click }) {
   return (
-        <button
-          className={` ${disable ? "movies-card__button" : "movies-card__button_active"}`}
-          type="button"
-        ></button>
+    <button
+      className={`movies-card__button ${
+        click ? "movies-card__button_active" : ""
+      }`}
+      type="button"
+      onClick={onClick}
+    ></button>
   );
 }
 
